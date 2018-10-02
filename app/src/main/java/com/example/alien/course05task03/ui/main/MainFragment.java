@@ -14,10 +14,7 @@ import android.view.ViewGroup;
 import com.example.alien.course05task03.BR;
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.databinding.MainBinding;
-import com.example.alien.course05task03.databinding.SearchByDirectorBinding;
 import com.example.alien.course05task03.databinding.SearchByNameBinding;
-import com.example.alien.course05task03.databinding.SearchByTopBinding;
-import com.example.alien.course05task03.databinding.SearchByYearBinding;
 import com.example.alien.course05task03.ui.common.BaseFragment;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.example.alien.course05task03.ui.filmDetail.FilmDetailDialogFragment;
@@ -54,7 +51,7 @@ public class MainFragment extends BaseFragment {
 
         switch (mSearchType) {
             case MainActivity.TYPE_SEARCH_BY_DIRECTOR: {
-                mViewDataBinding = SearchByDirectorBinding.inflate(inflater, container, false);
+                //mViewDataBinding = SearchByDirectorBinding.inflate(inflater, container, false);
                 break;
             }
             case MainActivity.TYPE_SEARCH_BY_NAME: {
@@ -62,11 +59,11 @@ public class MainFragment extends BaseFragment {
                 break;
             }
             case MainActivity.TYPE_SEARCH_BY_YEAR: {
-                mViewDataBinding = SearchByYearBinding.inflate(inflater, container, false);
+                //mViewDataBinding = SearchByYearBinding.inflate(inflater, container, false);
                 break;
             }
             case MainActivity.TYPE_SEARCH_BY_TOP: {
-                mViewDataBinding = SearchByTopBinding.inflate(inflater, container, false);
+               // mViewDataBinding = SearchByTopBinding.inflate(inflater, container, false);
                 break;
             }
             default: {

@@ -91,8 +91,9 @@ public class RealmFilmRepository implements IFilmRepository {
     }
 
     public long createFilmAndSave(String name, String director, int year, double rating) {
-        Location location = new Location(0L, name, year, director, rating);
-        return insertItem(location);
+        //Location location = new Location(0L, name, year, director, rating);
+        //return insertItem(location);
+        return 0;
     }
 
     @Override
@@ -150,8 +151,8 @@ public class RealmFilmRepository implements IFilmRepository {
 
     @Override
     public void createFilmAndUpdate(long id, String name, String director, int year, double rating) {
-        Location location = new Location(id, name, year, director, rating);
-        updateItem(location);
+//        Location location = new Location(id, name, year, director, rating);
+//        updateItem(location);
     }
 
     class OnFilmDataBaseUpdate implements IOnFilmDataBaseUpdate {

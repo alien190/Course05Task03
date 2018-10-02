@@ -15,7 +15,7 @@
             <!--android:layout_width="wrap_content"-->
             <!--android:layout_height="wrap_content"-->
             <!--android:onClick="@{(view) -> MainActivity.startActivity(view.getContext(), MainActivity.TYPE_SEARCH_BY_NAME)}"-->
-            <!--android:text="name"-->
+            <!--android:text="city"-->
             <!--android:id="@+id/btn_name_search"/>-->
 
         <!--<Button-->

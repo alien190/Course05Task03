@@ -33,10 +33,10 @@ public class FilmDetailViewModel extends BaseViewModel {
 
     private void loadFilm() {
         Location location = mRepository.getItem(mFilmId);
-        mName.postValue(location.getName());
-        mDirector.postValue(location.getDirector());
-        mYear.postValue(String.valueOf(location.getYear()));
-        mRating.postValue(String.valueOf(location.getRating()));
+//        mName.postValue(location.getName());
+//        mDirector.postValue(location.getDirector());
+//        mYear.postValue(String.valueOf(location.getYear()));
+//        mRating.postValue(String.valueOf(location.getRating()));
     }
 
     public MutableLiveData<String> getName() {

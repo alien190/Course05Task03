@@ -28,7 +28,7 @@ public class FilmListViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(Location location) {
-//        mTvName.setText(location.getName());
+//        mTvName.setText(location.getCity());
 //        mTvDirector.setText(location.getDirector());
 //        mTvYear.setText(String.valueOf(location.getYear()));
 //        mTvRate.setText(StringUtils.rateToString(location.getRating()));
