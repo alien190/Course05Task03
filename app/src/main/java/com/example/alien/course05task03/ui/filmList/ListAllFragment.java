@@ -1,6 +1,5 @@
 package com.example.alien.course05task03.ui.filmList;
 
-import android.app.AlertDialog;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -95,7 +94,7 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
 
         try {
             AssetManager am = getContext().getAssets();
-            InputStream is = am.open("filmList.json");
+            InputStream is = am.open("initialList.json");
             try (Scanner s = new Scanner(is).useDelimiter("\\A")) {
                 json = s.hasNext() ? s.next() : "";
             }

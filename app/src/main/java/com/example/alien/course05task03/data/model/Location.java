@@ -13,19 +13,14 @@ public class Location extends RealmObject {
     private String durationUnit;
     private Integer price;
     private String priceUnit;
+    private String imageBase64;
+    private String hotelImageBase64;
+    private String hotelName;
+    private Integer hotelPrice;
+    private String hotelPriceUnit;
 
 
     public Location() {
-    }
-
-    public Location(Long id, String city, String country, Integer duration, String durationUnit, Integer price, String priceUnit) {
-        this.id = id;
-        this.city = city;
-        this.country = country;
-        this.duration = duration;
-        this.durationUnit = durationUnit;
-        this.price = price;
-        this.priceUnit = priceUnit;
     }
 
     public Long getId() {
@@ -86,5 +81,45 @@ public class Location extends RealmObject {
 
     public void setPriceUnit(String priceUnit) {
         this.priceUnit = priceUnit;
+    }
+
+    public String getImageBase64() {
+        return imageBase64;
+    }
+
+    public void setImageBase64(String imageBase64) {
+        this.imageBase64 = imageBase64;
+    }
+
+    public String getHotelImageBase64() {
+        return hotelImageBase64;
+    }
+
+    public void setHotelImageBase64(String hotelImageBase64) {
+        this.hotelImageBase64 = hotelImageBase64;
+    }
+
+    public String getHotelName() {
+        return hotelName;
+    }
+
+    public void setHotelName(String hotelName) {
+        this.hotelName = hotelName;
+    }
+
+    public Integer getHotelPrice() {
+        return hotelPrice;
+    }
+
+    public void setHotelPrice(Integer hotelPrice) {
+        this.hotelPrice = hotelPrice;
+    }
+
+    public String getHotelPriceUnit() {
+        return hotelPriceUnit;
+    }
+
+    public void setHotelPriceUnit(String hotelPriceUnit) {
+        this.hotelPriceUnit = hotelPriceUnit;
     }
 }

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.model.Location;
+import com.example.alien.course05task03.utils.ImageUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,15 +43,16 @@ public class FilmListViewHolder extends RecyclerView.ViewHolder {
     public void bind(Location location) {
         mTvCity.setText(location.getCity());
         mTvCountry.setText(location.getCountry());
-        mTvDuration.setText(location.getDuration());
+        mTvDuration.setText(String.valueOf(location.getDuration()));
         mTvDurationUnit.setText(location.getDurationUnit());
-        mTvPrice.setText(location.getPrice());
+        mTvPrice.setText(String.valueOf(location.getPrice()));
         mTvPriceUnit.setText(location.getPriceUnit());
+        mIvPicture.setImageBitmap(ImageUtils.fromBase64(location.getImageBase64()));
         mId = location.getId();
     }
 
     public void setOnItemClickListener(final IOnItemClickListener listener) {
-         view.setOnClickListener(view -> {
+        view.setOnClickListener(view -> {
             if (listener != null) listener.OnItemClick(mId);
         });
     }
