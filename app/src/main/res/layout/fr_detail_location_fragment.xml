@@ -23,7 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/ivPicture"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
@@ -35,9 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:subtitle="France"
-                app:title="Paris"
-                app:titleTextColor="@color/colorPrimary">
+                app:titleTextColor="@color/colorPrimary"
+                app:title="Paris">
 
             </android.support.v7.widget.Toolbar>
 
@@ -70,28 +69,52 @@
                             style="@style/baseTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="HOTEL FOR YOU" />
+                            android:text="@string/hotel_for_you" />
 
                         <TextView
                             android:id="@+id/tvDuration"
                             style="@style/baseTextStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="5 DAYS"
                             android:textSize="12sp" />
                     </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/ivPicture"
+                        android:id="@+id/ivHotelPicture"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
                         android:src="@drawable/hotel" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="adsasdadas" />
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvHotelName"
+                            style="@style/baseTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:id="@+id/tvHotelAddress"
+                            style="@style/baseTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/colorGray" />
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            style="@style/baseTextStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp" />
+                    </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 

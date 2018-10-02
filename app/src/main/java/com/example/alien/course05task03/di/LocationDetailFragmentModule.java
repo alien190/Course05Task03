@@ -11,15 +11,15 @@ import toothpick.config.Module;
 public class LocationDetailFragmentModule extends Module {
 
     private Fragment mFragment;
-    private Long mFilmId;
+    private Long mLocationId;
 
-    public LocationDetailFragmentModule(Fragment fragment, long filmId) {
+    public LocationDetailFragmentModule(Fragment fragment, long locationId) {
         this.mFragment = fragment;
-        this.mFilmId = filmId;
+        this.mLocationId = locationId;
 
         bind(Fragment.class).toInstance(mFragment);
-        bind(LocationDetailViewModel.class).toProvider(FilmDetailViewModelProvider.class);
-        bind(Long.class).withName("FilmId").toInstance(mFilmId);
-        bind(LocationDetailViewModelCustomFactory.class).toProvider(FilmDetailViewModelCustomFactoryProvider.class);
+        bind(LocationDetailViewModel.class).toProvider(LocationDetailViewModelProvider.class);
+        bind(Long.class).withName("LocationId").toInstance(mLocationId);
+        bind(LocationDetailViewModelCustomFactory.class).toProvider(LocationDetailViewModelCustomFactoryProvider.class);
     }
 }

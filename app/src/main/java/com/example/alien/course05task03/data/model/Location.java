@@ -16,6 +16,7 @@ public class Location extends RealmObject {
     private String imageBase64;
     private String hotelImageBase64;
     private String hotelName;
+    private String hotelAddress;
     private Integer hotelPrice;
     private String hotelPriceUnit;
 
@@ -121,5 +122,13 @@ public class Location extends RealmObject {
 
     public void setHotelPriceUnit(String hotelPriceUnit) {
         this.hotelPriceUnit = hotelPriceUnit;
+    }
+
+    public String getHotelAddress() {
+        return hotelAddress;
+    }
+
+    public void setHotelAddress(String hotelAddress) {
+        this.hotelAddress = hotelAddress;
     }
 }

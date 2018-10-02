@@ -2,92 +2,104 @@ package com.example.alien.course05task03.ui.locationDetail;
 
 import android.arch.lifecycle.MutableLiveData;
 
-import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.data.model.Location;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.google.gson.Gson;
 
-import timber.log.Timber;
-
 public class LocationDetailViewModel extends BaseViewModel {
-    private MutableLiveData<String> mName = new MutableLiveData<>();
-    private MutableLiveData<String> mYear = new MutableLiveData<>();
-    private MutableLiveData<String> mDirector = new MutableLiveData<>();
-    private MutableLiveData<String> mRating = new MutableLiveData<>();
-    private MutableLiveData<Boolean> mIsSaved = new MutableLiveData<>();
-    private Long mFilmId;
-    private int mTitleId;
+    private Long mLocationId;
+    private MutableLiveData<String> mCity = new MutableLiveData<>();
+    private MutableLiveData<String> mDuration = new MutableLiveData<>();
+    private MutableLiveData<String> mImageBase64 = new MutableLiveData<>();
+    private MutableLiveData<String> mHotelImageBase64 = new MutableLiveData<>();
+    private MutableLiveData<String> mHotelName = new MutableLiveData<>();
+    private MutableLiveData<String> mHotelAddress = new MutableLiveData<>();
+    private MutableLiveData<String> mHotelPrice = new MutableLiveData<>();
 
-    public LocationDetailViewModel(ILocationRepository repository, Gson gson, Long filmId) {
+
+    public LocationDetailViewModel(ILocationRepository repository, Gson gson, Long locationId) {
         super(repository, gson);
-        mIsSaved.postValue(false);
-        mFilmId = filmId;
-        if (mFilmId >= 0) {
-            loadFilm();
-            mTitleId = R.string.dialog_title_edit_film;
-        } else {
-            mTitleId = R.string.dialog_title_new_film;
-        }
+        mLocationId = locationId;
     }
 
     private void loadFilm() {
-        Location location = mRepository.getItem(mFilmId);
-//        mName.postValue(location.getName());
-//        mDirector.postValue(location.getDirector());
-//        mYear.postValue(String.valueOf(location.getYear()));
-//        mRating.postValue(String.valueOf(location.getRating()));
-    }
-
-    public MutableLiveData<String> getName() {
-        return mName;
-    }
-
-    public void setName(String mName) {
-        this.mName.postValue(mName);
-    }
-
-    public MutableLiveData<String> getYear() {
-        return mYear;
-    }
-
-
-    public MutableLiveData<String> getDirector() {
-        return mDirector;
-    }
-
-    public MutableLiveData<String> getRating() {
-        return mRating;
-    }
-
-
-    public void apply(String name, String director, String year, String rating) {
-        int yearInt = 0;
-        double ratingDbl = 0;
-        try {
-            yearInt = Integer.valueOf(year);
-            ratingDbl = Double.valueOf(rating);
-        } catch (Throwable t) {
-            Timber.d(t);
-        }
-        if (mFilmId < 0) {
-            mRepository.createFilmAndSave(name, director, yearInt, ratingDbl);
-        } else {
-            mRepository.createFilmAndUpdate(mFilmId, name, director, yearInt, ratingDbl);
-        }
-        mIsSaved.postValue(true);
-    }
-
-    public MutableLiveData<Boolean> getIsSaved() {
-        return mIsSaved;
-    }
-
-    public int getTitleId() {
-        return mTitleId;
+        Location location = mRepository.getItem(mLocationId);
+        mCity.postValue(location.getCity());
+        mDuration.postValue(String.valueOf(location.getDuration()) + " " + location.getDurationUnit());
+        mImageBase64.postValue(location.getImageBase64());
+        mHotelImageBase64.postValue(location.getHotelImageBase64());
+        mHotelName.postValue(location.getHotelName());
+        mHotelAddress.postValue(location.getHotelAddress());
+        mHotelPrice.postValue(location.getHotelPriceUnit() + String.valueOf(location.getHotelPrice()));
     }
 
     @Override
     protected void updateFromRepository() {
+        loadFilm();
+    }
 
+    public Long getLocationId() {
+        return mLocationId;
+    }
+
+    public void setLocationId(Long locationId) {
+        mLocationId = locationId;
+    }
+
+    public MutableLiveData<String> getCity() {
+        return mCity;
+    }
+
+    public void setCity(MutableLiveData<String> city) {
+        mCity = city;
+    }
+
+    public MutableLiveData<String> getDuration() {
+        return mDuration;
+    }
+
+    public void setDuration(MutableLiveData<String> duration) {
+        mDuration = duration;
+    }
+
+    public MutableLiveData<String> getImageBase64() {
+        return mImageBase64;
+    }
+
+    public void setImageBase64(MutableLiveData<String> imageBase64) {
+        mImageBase64 = imageBase64;
+    }
+
+    public MutableLiveData<String> getHotelImageBase64() {
+        return mHotelImageBase64;
+    }
+
+    public void setHotelImageBase64(MutableLiveData<String> hotelImageBase64) {
+        mHotelImageBase64 = hotelImageBase64;
+    }
+
+    public MutableLiveData<String> getHotelName() {
+        return mHotelName;
+    }
+
+    public void setHotelName(MutableLiveData<String> hotelName) {
+        mHotelName = hotelName;
+    }
+
+    public MutableLiveData<String> getHotelAddress() {
+        return mHotelAddress;
+    }
+
+    public void setHotelAddress(MutableLiveData<String> hotelAddress) {
+        mHotelAddress = hotelAddress;
+    }
+
+    public MutableLiveData<String> getHotelPrice() {
+        return mHotelPrice;
+    }
+
+    public void setHotelPrice(MutableLiveData<String> hotelPrice) {
+        mHotelPrice = hotelPrice;
     }
 }

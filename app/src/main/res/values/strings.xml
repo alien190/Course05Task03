@@ -34,4 +34,5 @@
     <string name="settings_menu_item">SETTINGS</string>
     <string name="separator_label">/</string>
     <string name="locations_for_you">Locations for You</string>
+    <string name="hotel_for_you">HOTEL FOR YOU</string>
 </resources>

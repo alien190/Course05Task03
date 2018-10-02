@@ -12,7 +12,8 @@ public class LocationDetailActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment getFragment() {
-        return LocationDetailFragment.newInstance(0);
+        Intent intent = getIntent();
+        return LocationDetailFragment.newInstance(intent.getLongExtra(ID_KEY, 1));
     }
 
     @Override

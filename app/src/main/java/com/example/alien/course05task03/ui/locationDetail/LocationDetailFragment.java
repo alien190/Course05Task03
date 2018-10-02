@@ -4,15 +4,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.di.LocationDetailFragmentModule;
+import com.example.alien.course05task03.utils.ImageUtils;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import toothpick.Scope;
 import toothpick.Toothpick;
@@ -25,28 +30,21 @@ public class LocationDetailFragment extends Fragment {
     @Inject
     protected LocationDetailViewModel mViewModel;
 
-//    @BindView(R.id.tvTitle)
-//    protected TextView tvTitle;
-//
-//    @BindView(R.id.etName)
-//    protected EditText etName;
-//
-//    @BindView(R.id.etDirector)
-//    protected EditText etDirector;
-//
-//    @BindView(R.id.etYear)
-//    protected EditText etYear;
-//
-//    @BindView(R.id.etRate)
-//    protected EditText etRate;
+    @BindView(R.id.ivPicture)
+    protected ImageView mIvPicture;
+    @BindView(R.id.ivHotelPicture)
+    protected ImageView mIvHotelPicture;
+    @BindView(R.id.toolbar)
+    protected Toolbar mToolbar;
+    @BindView(R.id.tvDuration)
+    protected TextView mTvDuration;
+    @BindView(R.id.tvHotelName)
+    protected TextView mTvHotelName;
+    @BindView(R.id.tvHotelAddress)
+    protected TextView mTvHotelAddress;
+    @BindView(R.id.tvPrice)
+    protected TextView mTvPrice;
 
-//    private DialogInterface.OnClickListener mOnClickListener = (dialogInterface, i) -> {
-//        mViewModel.apply(etName.getText().toString(),
-//                etDirector.getText().toString(),
-//                etYear.getText().toString(),
-//                etRate.getText().toString());
-//
-//    };
 
     public static LocationDetailFragment newInstance(long id) {
 
@@ -62,6 +60,9 @@ public class LocationDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fr_detail_location_fragment, container, false);
+        toothpickInject();
+        mViewModel.updateFromRepository();
+        initUI(view);
         return view;
     }
 
@@ -86,11 +87,15 @@ public class LocationDetailFragment extends Fragment {
     private void initUI(View view) {
         ButterKnife.bind(this, view);
 
-//        tvTitle.setText(mViewModel.getTitleId());
-//        mViewModel.getName().observe(this, str -> etName.setText(str));
-//        mViewModel.getDirector().observe(this, str -> etDirector.setText(str));
-//        mViewModel.getYear().observe(this, str -> etYear.setText(str));
-//        mViewModel.getRating().observe(this, str -> etRate.setText(str));
+        mViewModel.getImageBase64().observe(this, img ->
+                mIvPicture.setImageBitmap(ImageUtils.fromBase64(img)));
+        mViewModel.getHotelImageBase64().observe(this,
+                img -> mIvHotelPicture.setImageBitmap(ImageUtils.fromBase64(img)));
+       // mViewModel.getCity().observe(this, mToolbar::setTitle);
+        mViewModel.getDuration().observe(this, mTvDuration::setText);
+        mViewModel.getHotelName().observe(this, mTvHotelName::setText);
+        mViewModel.getHotelAddress().observe(this, mTvHotelAddress::setText);
+        mViewModel.getHotelPrice().observe(this, mTvPrice::setText);
     }
 
 

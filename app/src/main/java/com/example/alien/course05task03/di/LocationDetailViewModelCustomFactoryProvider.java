@@ -8,14 +8,14 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Provider;
 
-public class FilmDetailViewModelCustomFactoryProvider implements Provider<LocationDetailViewModelCustomFactory> {
+public class LocationDetailViewModelCustomFactoryProvider implements Provider<LocationDetailViewModelCustomFactory> {
 
     protected ILocationRepository mRepository;
     private Gson mGson;
     private Long mFilmId;
 
     @Inject
-    public FilmDetailViewModelCustomFactoryProvider(ILocationRepository mRepository, Gson gson, @Named("FilmId") Long filmId) {
+    public LocationDetailViewModelCustomFactoryProvider(ILocationRepository mRepository, Gson gson, @Named("LocationId") Long filmId) {
         this.mRepository = mRepository;
         this.mGson = gson;
         this.mFilmId = filmId;
