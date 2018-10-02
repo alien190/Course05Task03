@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.ui.common.BaseFragment;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
+import com.example.alien.course05task03.ui.locationDetail.LocationDetailActivity;
 import com.example.alien.course05task03.ui.locationDetail.LocationDetailFragment;
 
 import java.io.InputStream;
@@ -106,8 +107,7 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
 
     @Override
     public void OnItemClick(long id) {
-//        LocationDetailFragment locationDetailFragment = LocationDetailFragment.newInstance(id);
-//        locationDetailFragment.show(getActivity().getSupportFragmentManager(), "locationDetailFragment");
+        LocationDetailActivity.start(getContext(), id);
     }
 
 

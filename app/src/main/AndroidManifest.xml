@@ -13,11 +13,10 @@
         <activity android:name="com.example.alien.course05task03.ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.locationDetail.FilmDetailActivity" />
+        <activity android:name=".ui.locationDetail.LocationDetailActivity"/>
     </application>
 
 </manifest>

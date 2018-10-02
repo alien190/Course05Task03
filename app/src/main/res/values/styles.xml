@@ -6,8 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="toolbarStyle">@style/hideViewStyle</item>
+        <item name="actionBarStyle">@style/hideViewStyle</item>
+    </style>
 
+    <style name="AppTheme.test">
+        <item name="colorPrimaryDark">@color/colorWhite</item>
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
+        <item name="android:background">@color/colorWhite</item>
     </style>
 
     <style name="hideViewStyle">
