@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data class="SearchByNameBinding">
 
@@ -19,11 +20,12 @@
             style="@style/captionTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Locations for You" />
+            android:text="@string/locations_for_you" />
 
         <android.support.v7.widget.SearchView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="@style/baseTextStyle"/>
 
         <View style="@style/separateLine" />
 
@@ -41,7 +43,9 @@
                 android:text="@={vm.visibleItemPosition}"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
-                tools:text="3" />
+                tools:text="3"
+                style="@style/baseTextStyle"
+                />
 
             <TextView
                 android:id="@+id/tvSeparator"
@@ -52,7 +56,8 @@
                 android:layout_marginEnd="2dp"
                 android:layout_marginRight="2dp"
                 android:text="@string/separator_label"
-                android:textColor="@color/colorPrimary"/>
+                style="@style/baseTextStyle"
+                />
 
             <TextView
                 android:id="@+id/tvItemCount"
@@ -60,7 +65,8 @@
                 android:layout_height="wrap_content"
                 android:text="@{vm.itemCount}"
                 tools:text="14"
-                android:textColor="@color/colorPrimary"/>
+                style="@style/baseTextStyle"
+                />
 
 
         </LinearLayout>

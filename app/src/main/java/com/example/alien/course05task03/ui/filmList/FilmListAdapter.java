@@ -36,7 +36,7 @@ public class FilmListAdapter extends ListAdapter<Film, FilmListViewHolder> {
     @NonNull
     @Override
     public FilmListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.li_film_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.li_tour, viewGroup, false);
         return new FilmListViewHolder(view);
     }
 

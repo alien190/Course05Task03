@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="32dp"
+    app:cardCornerRadius="@dimen/cardCornerRadius">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/eiffel_tower"
+        android:src="@drawable/eiffel_tower"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/circular_std_book"
+            tools:text="Paris"
+            android:text="Paris" />
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvCity"
+            android:layout_alignLeft="@+id/tvCity"
+            android:layout_alignTop="@+id/tvCity"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            app:fontFamily="@font/circular_std_book"
+            tools:text="France"
+            android:text="France"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_bookmark_48dp"
+            android:background="@color/colorZeroOpacity"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/tvCity"
+            android:layout_alignTop="@+id/tvCity"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerInside"/>
+
+        <View style="@style/separateLineThin"
+            android:layout_marginTop="18dp"
+            android:layout_below="@+id/tvCountry"/>
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvCountry"
+            android:layout_alignStart="@+id/tvCity"
+            android:layout_alignLeft="@+id/tvCity"
+            android:layout_marginTop="24dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40sp"
+            app:fontFamily="@font/circular_std_book"
+            tools:text="6"
+            android:text="6"/>
+
+        <TextView
+            android:id="@+id/tvDurationUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvDuration"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@+id/tvDuration"
+            android:layout_toRightOf="@+id/tvDuration"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:fontFamily="@font/circular_std_book"
+            tools:text="DAYS"
+            android:text="DAYS"/>
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvDuration"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="40sp"
+            app:fontFamily="@font/circular_std_book"
+            tools:text="596"
+            android:text="596"/>
+
+        <TextView
+            android:id="@+id/tvPriceUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tvPrice"
+            android:layout_marginTop="8dp"
+            android:layout_toStartOf="@+id/tvPrice"
+            android:layout_toLeftOf="@+id/tvPrice"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18sp"
+            app:fontFamily="@font/circular_std_book"
+            tools:text="E"
+            android:text="E"/>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

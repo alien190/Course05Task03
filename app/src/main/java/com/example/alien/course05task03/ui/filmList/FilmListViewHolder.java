@@ -17,27 +17,27 @@ public class FilmListViewHolder extends RecyclerView.ViewHolder {
     private View view;
     private long mId;
 
-    @BindView(R.id.tvName)
-    TextView mTvName;
-    @BindView(R.id.tvDirector)
-    TextView mTvDirector;
-    @BindView(R.id.tvYear)
-    TextView mTvYear;
-    @BindView(R.id.tvRate)
-    TextView mTvRate;
+//    @BindView(R.id.tvName)
+//    TextView mTvName;
+//    @BindView(R.id.tvDirector)
+//    TextView mTvDirector;
+//    @BindView(R.id.tvYear)
+//    TextView mTvYear;
+//    @BindView(R.id.tvRate)
+//    TextView mTvRate;
 
 
     public FilmListViewHolder(@NonNull View itemView) {
         super(itemView);
         view = itemView;
-        ButterKnife.bind(this, view);
+//        ButterKnife.bind(this, view);
     }
 
     public void bind(Film film) {
-        mTvName.setText(film.getName());
-        mTvDirector.setText(film.getDirector());
-        mTvYear.setText(String.valueOf(film.getYear()));
-        mTvRate.setText(StringUtils.rateToString(film.getRating()));
+//        mTvName.setText(film.getName());
+//        mTvDirector.setText(film.getDirector());
+//        mTvYear.setText(String.valueOf(film.getYear()));
+//        mTvRate.setText(StringUtils.rateToString(film.getRating()));
         mId = film.getId();
     }
 
