@@ -91,7 +91,7 @@ public class LocationDetailFragment extends Fragment {
                 mIvPicture.setImageBitmap(ImageUtils.fromBase64(img)));
         mViewModel.getHotelImageBase64().observe(this,
                 img -> mIvHotelPicture.setImageBitmap(ImageUtils.fromBase64(img)));
-       // mViewModel.getCity().observe(this, mToolbar::setTitle);
+        mViewModel.getCity().observe(this, mToolbar::setTitle);
         mViewModel.getDuration().observe(this, mTvDuration::setText);
         mViewModel.getHotelName().observe(this, mTvHotelName::setText);
         mViewModel.getHotelAddress().observe(this, mTvHotelAddress::setText);
