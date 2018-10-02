@@ -6,6 +6,23 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="toolbarStyle">@style/hideViewStyle</item>
+
     </style>
 
+    <style name="hideViewStyle">
+        <item name="android:visibility">@integer/view_gone</item>
+    </style>
+
+    <style name="separateLine">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="captionTextStyle">
+        <item name="android:textSize">12pt</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
 </resources>

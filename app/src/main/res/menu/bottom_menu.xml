@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_search_48dp"
+        android:id="@+id/search"
+        android:title="@string/search_menu_item" />
+    <item
+        android:id="@+id/trips"
+        android:title="@string/trips_menu_item"
+        android:icon="@drawable/ic_compass"/>
+    <item
+        android:id="@+id/bookmarks"
+        android:title="@string/bookmarks_menu_item"
+        android:icon="@drawable/ic_bookmark_48dp"/>
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings_menu_item"
+        android:icon="@drawable/ic_settings_48dp"/>
+</menu>

@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         Module module;
         mScopeName = this.getClass().getSimpleName() + ".";
-        int type = getIntent().getIntExtra(TYPE_KEY, 0);
+        int type = getIntent().getIntExtra(TYPE_KEY, 1);
 
         switch (type) {
             case TYPE_SEARCH_BY_DIRECTOR: {

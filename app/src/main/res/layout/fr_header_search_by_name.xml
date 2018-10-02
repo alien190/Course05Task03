@@ -8,19 +8,31 @@
             />
     </data>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <EditText android:layout_width="match_parent"
+        <TextView
+            style="@style/captionTextStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/et_name_query"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_margin="4dp"
-            android:text="@{vm.searchByNameQuery}"
-            android:onTextChanged="@{(text, start, before, count) -> vm.setSearchByNameQuery(text)}"
-            android:hint="@string/name_search_hint"/>
+            android:text="Locations for You" />
 
-    </RelativeLayout>
+        <android.support.v7.widget.SearchView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View style="@style/separateLine" />
+
+        <!--<EditText android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/et_name_query"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_margin="4dp"-->
+            <!--android:text="@{vm.searchByNameQuery}"-->
+            <!--android:onTextChanged="@{(text, start, before, count) -> vm.setSearchByNameQuery(text)}"-->
+            <!--android:hint="@string/name_search_hint"/>-->
+
+    </LinearLayout>
 </layout>

@@ -28,4 +28,8 @@
     <string name="year_label">Год выпуска</string>
     <string name="director_label">Режиссер</string>
     <string name="rate_label">Рейтинг</string>
+    <string name="search_menu_item">SEARCH</string>
+    <string name="trips_menu_item">TRIPS</string>
+    <string name="bookmarks_menu_item">BOOKMARKS</string>
+    <string name="settings_menu_item">SETTINGS</string>
 </resources>
