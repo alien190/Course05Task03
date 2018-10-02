@@ -10,22 +10,22 @@ public class Location extends RealmObject {
     private String city;
     private String country;
     private Integer duration;
-    private String durationUnits;
+    private String durationUnit;
     private Integer price;
-    private String priceUnits;
+    private String priceUnit;
 
 
     public Location() {
     }
 
-    public Location(Long id, String city, String country, Integer duration, String durationUnits, Integer price, String priceUnits) {
+    public Location(Long id, String city, String country, Integer duration, String durationUnit, Integer price, String priceUnit) {
         this.id = id;
         this.city = city;
         this.country = country;
         this.duration = duration;
-        this.durationUnits = durationUnits;
+        this.durationUnit = durationUnit;
         this.price = price;
-        this.priceUnits = priceUnits;
+        this.priceUnit = priceUnit;
     }
 
     public Long getId() {
@@ -64,12 +64,12 @@ public class Location extends RealmObject {
         this.duration = duration;
     }
 
-    public String getDurationUnits() {
-        return durationUnits;
+    public String getDurationUnit() {
+        return durationUnit;
     }
 
-    public void setDurationUnits(String durationUnits) {
-        this.durationUnits = durationUnits;
+    public void setDurationUnit(String durationUnit) {
+        this.durationUnit = durationUnit;
     }
 
     public Integer getPrice() {
@@ -80,11 +80,11 @@ public class Location extends RealmObject {
         this.price = price;
     }
 
-    public String getPriceUnits() {
-        return priceUnits;
+    public String getPriceUnit() {
+        return priceUnit;
     }
 
-    public void setPriceUnits(String priceUnits) {
-        this.priceUnits = priceUnits;
+    public void setPriceUnit(String priceUnit) {
+        this.priceUnit = priceUnit;
     }
 }

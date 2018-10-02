@@ -111,16 +111,5 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
         filmDetailDialogFragment.show(getActivity().getSupportFragmentManager(), "filmDetailDialogFragment");
     }
 
-    @Override
-    public boolean OnItemLongClick(long id) {
-        new AlertDialog.Builder(getContext())
-                .setMessage(R.string.delete_message)
-                .setNegativeButton(R.string.no_label, null)
-                .setPositiveButton(R.string.yes_label, (dialogInterface, i) -> mViewModel.deleteItem(id))
-                .create()
-                .show();
-        return true;
-    }
-
 
 }
