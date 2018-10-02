@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Course04Task02</string>
+    <string name="app_name">Course05Task03</string>
     <string name="name_search_title">Поиск по названию</string>
     <string name="director_search_title">Поиск по имени режисера</string>
     <string name="main_activity_title">Фильмы</string>

@@ -4,7 +4,7 @@
     <data class="SearchByNameBinding">
         <variable
             name="vm"
-            type="com.example.alien.course04task02.ui.search.SearchByNameViewModel"
+            type="com.example.alien.course05task03.ui.search.SearchByNameViewModel"
             />
     </data>
 

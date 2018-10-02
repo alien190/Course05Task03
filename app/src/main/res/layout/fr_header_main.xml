@@ -3,7 +3,7 @@
 
     <data class="MainBinding">
 
-        <import type="com.example.alien.course04task02.ui.main.MainActivity"/>
+        <import type="com.example.alien.course05task03.ui.main.MainActivity"/>
 
     </data>
 

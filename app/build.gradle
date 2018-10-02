@@ -14,7 +14,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ toothpick_registry_package_name : 'com.example.alien.course04task02' ]
+                arguments = [ toothpick_registry_package_name : 'com.example.alien.course05task03' ]
             }
         }
         buildConfigField("Boolean", "useRealm", "true")
