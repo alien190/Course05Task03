@@ -85,7 +85,7 @@ public class MainFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewDataBinding.setVariable(BR.vm, mViewModel);
-
+        mViewDataBinding.setLifecycleOwner(this);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class MainFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.mi_generate: {
-    //            generateData();
+                //            generateData();
                 return true;
             }
             case R.id.mi_add: {

@@ -40,6 +40,7 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
     @Inject
     protected BaseViewModel mViewModel;
 
+    private LinearLayoutManager mLinearLayoutManager;
 
     public static ListAllFragment newInstance(String parentScopeName) {
 
@@ -64,23 +65,29 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-
-        //mRealmAdapter = new FilmListRealmAdapter(this);
-
-        //mRealmAdapter.updateData((OrderedRealmCollection<Film>) mViewModel.getFilmList().getValue());
-
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        mLinearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        initRecyclerViewScrollListener();
         mRecyclerView.setAdapter(mAdapter);
-
         mViewModel.getFilmList().observe(this, list -> mAdapter.submitList(list));
-
         mViewModel.getIsEmpty().observe(this, isEmpty -> {
             if (isEmpty != null && isEmpty) {
                 generateData();
             }
         });
+    }
+
+    private void initRecyclerViewScrollListener() {
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                mViewModel.getVisibleItemPosition().postValue(
+                        String.valueOf(mLinearLayoutManager.findFirstVisibleItemPosition() + 1));
+                Timber.d("item: %d", mLinearLayoutManager.findFirstVisibleItemPosition());
+            }
+        });
+
     }
 
     private void generateData() {

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data class="SearchByNameBinding">
+
         <variable
             name="vm"
-            type="com.example.alien.course05task03.ui.search.SearchByNameViewModel"
-            />
+            type="com.example.alien.course05task03.ui.search.SearchByNameViewModel" />
+
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -22,17 +24,56 @@
         <android.support.v7.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
         <View style="@style/separateLine" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvCurrentItemPosition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={vm.visibleItemPosition}"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                tools:text="3" />
+
+            <TextView
+                android:id="@+id/tvSeparator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:text="@string/separator_label"
+                android:textColor="@color/colorPrimary"/>
+
+            <TextView
+                android:id="@+id/tvItemCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{vm.itemCount}"
+                tools:text="14"
+                android:textColor="@color/colorPrimary"/>
+
+
+        </LinearLayout>
+
         <!--<EditText android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/et_name_query"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_margin="4dp"-->
-            <!--android:text="@{vm.searchByNameQuery}"-->
-            <!--android:onTextChanged="@{(text, start, before, count) -> vm.setSearchByNameQuery(text)}"-->
-            <!--android:hint="@string/name_search_hint"/>-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/et_name_query"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_margin="4dp"-->
+        <!--android:text="@{vm.searchByNameQuery}"-->
+        <!--android:onTextChanged="@{(text, start, before, count) -> vm.setSearchByNameQuery(text)}"-->
+        <!--android:hint="@string/name_search_hint"/>-->
 
     </LinearLayout>
 </layout>

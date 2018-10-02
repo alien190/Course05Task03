@@ -2,6 +2,7 @@ package com.example.alien.course05task03.ui.common;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
+import android.databinding.Bindable;
 
 import com.example.alien.course05task03.data.IFilmRepository;
 import com.example.alien.course05task03.data.model.Film;
@@ -22,6 +23,8 @@ public abstract class BaseViewModel extends ViewModel {
     protected MutableLiveData<List<Film>> mFilmList = new MutableLiveData<>();
     protected OrderedRealmCollection<Film> data;
     private MutableLiveData<Boolean> mIsEmpty = new MutableLiveData<>();
+    private MutableLiveData<String> mVisibleItemPosition = new MutableLiveData<>();
+    private MutableLiveData<String> mItemCount = new MutableLiveData<>();
 
     protected IFilmRepository mRepository;
 
@@ -33,15 +36,19 @@ public abstract class BaseViewModel extends ViewModel {
 
         EventBus.getDefault().register(this);
 
+        mVisibleItemPosition.postValue("1");
+
         mFilmList.observeForever(list ->
         {
             mIsEmpty.postValue(list != null && list.isEmpty());
+            mItemCount.postValue(list == null ? "0" : String.valueOf(list.size()));
 
             if (list instanceof RealmResults) {
                 RealmResults<Film> filmRealmResults = (RealmResults<Film>) list;
                 filmRealmResults.addChangeListener(films -> mIsEmpty.postValue(films.isEmpty()));
             }
         });
+
     }
 
     public MutableLiveData<List<Film>> getFilmList() {
@@ -74,10 +81,18 @@ public abstract class BaseViewModel extends ViewModel {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFilmDataBaseUpdate(IFilmRepository.IOnFilmDataBaseUpdate event)
-    {
+    public void onFilmDataBaseUpdate(IFilmRepository.IOnFilmDataBaseUpdate event) {
         updateFromRepository();
     }
 
     abstract protected void updateFromRepository();
+
+    public MutableLiveData<String> getVisibleItemPosition() {
+        return mVisibleItemPosition;
+    }
+
+
+    public MutableLiveData<String> getItemCount() {
+        return mItemCount;
+    }
 }
