@@ -1,30 +1,30 @@
 package com.example.alien.course05task03.data;
 
-import com.example.alien.course05task03.data.model.Film;
+import com.example.alien.course05task03.data.model.Location;
 
 import java.util.List;
 
 public interface IFilmRepository {
 
-    long insertItem(Film film);
+    long insertItem(Location location);
 
-    void insertItems(List<Film> films);
+    void insertItems(List<Location> locations);
 
-    Film getItem(long id);
+    Location getItem(long id);
 
     boolean deleteItem(long id);
 
-    List<Film> getAll();
+    List<Location> getAll();
 
-    void updateItem(Film film);
+    void updateItem(Location location);
 
-    List<Film> search(String query);
+    List<Location> search(String query);
 
-    List<Film> searchInBounds(int startYear, int endYear);
+    List<Location> searchInBounds(int startYear, int endYear);
 
-    List<Film> searchByDirector(String name);
+    List<Location> searchByDirector(String name);
 
-    List<Film> getTopFilms(int count);
+    List<Location> getTopFilms(int count);
 
     long createFilmAndSave(String name, String director, int year, double rating);
 

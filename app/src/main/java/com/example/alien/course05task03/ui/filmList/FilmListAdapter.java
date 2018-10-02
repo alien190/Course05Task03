@@ -8,22 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.alien.course05task03.R;
-import com.example.alien.course05task03.data.model.Film;
+import com.example.alien.course05task03.data.model.Location;
 
 
-public class FilmListAdapter extends ListAdapter<Film, FilmListViewHolder> {
+public class FilmListAdapter extends ListAdapter<Location, FilmListViewHolder> {
 
     private IOnItemClickListener mOnItemClickListener;
 
-    private static DiffUtil.ItemCallback<Film> DIFF_CALLBACK = new DiffUtil.ItemCallback<Film>() {
+    private static DiffUtil.ItemCallback<Location> DIFF_CALLBACK = new DiffUtil.ItemCallback<Location>() {
         @Override
-        public boolean areItemsTheSame(@NonNull Film film, @NonNull Film t1) {
-            return film.getId() == t1.getId();
+        public boolean areItemsTheSame(@NonNull Location location, @NonNull Location t1) {
+            return location.getId() == t1.getId();
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull Film film, @NonNull Film t1) {
-            return film.equals(t1);
+        public boolean areContentsTheSame(@NonNull Location location, @NonNull Location t1) {
+            return location.equals(t1);
         }
     };
 

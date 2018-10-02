@@ -1,6 +1,6 @@
 package com.example.alien.course05task03.data;
 
-import com.example.alien.course05task03.data.model.Film;
+import com.example.alien.course05task03.data.model.Location;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import io.realm.Case;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 import io.realm.Sort;
 
 public class RealmFilmRepository implements IFilmRepository {
@@ -20,8 +21,12 @@ public class RealmFilmRepository implements IFilmRepository {
 
 
     public RealmFilmRepository() {
-        mRealm = Realm.getDefaultInstance();
-        Number number = mRealm.where(Film.class).max("id");
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build();
+        mRealm = Realm.getInstance(realmConfiguration);
+
+        Number number = mRealm.where(Location.class).max("id");
         if (number != null) {
             currentId.set(number.longValue());
         } else {
@@ -31,34 +36,34 @@ public class RealmFilmRepository implements IFilmRepository {
     }
 
     @Override
-    public long insertItem(Film film) {
-        film.setId(currentId.incrementAndGet());
+    public long insertItem(Location location) {
+        location.setId(currentId.incrementAndGet());
         mRealm.beginTransaction();
-        mRealm.copyToRealm(film);
+        mRealm.copyToRealm(location);
         mRealm.commitTransaction();
         EventBus.getDefault().post(new OnFilmDataBaseUpdate());
-        return film.getId();
+        return location.getId();
     }
 
     @Override
-    public void insertItems(List<Film> films) {
-        for (Film film : films) {
-            insertItem(film);
+    public void insertItems(List<Location> locations) {
+        for (Location location : locations) {
+            insertItem(location);
         }
     }
 
     @Override
-    public Film getItem(long id) {
+    public Location getItem(long id) {
         return mRealm.copyFromRealm(getFilmById(id));
     }
 
     @Override
     public boolean deleteItem(long id) {
         boolean isSuccessful = false;
-        Film film = getFilmById(id);
+        Location location = getFilmById(id);
         mRealm.beginTransaction();
-        if (film != null) {
-            film.deleteFromRealm();
+        if (location != null) {
+            location.deleteFromRealm();
             isSuccessful = true;
         }
         mRealm.commitTransaction();
@@ -67,34 +72,34 @@ public class RealmFilmRepository implements IFilmRepository {
     }
 
     @Override
-    public List<Film> getAll() {
-        return mRealm.copyFromRealm(mRealm.where(Film.class)
+    public List<Location> getAll() {
+        return mRealm.copyFromRealm(mRealm.where(Location.class)
                 .findAll()
                 .sort("id", Sort.ASCENDING));
     }
 
     @Override
-    public void updateItem(Film Film) {
+    public void updateItem(Location Location) {
         mRealm.beginTransaction();
-        mRealm.copyToRealmOrUpdate(Film);
+        mRealm.copyToRealmOrUpdate(Location);
         mRealm.commitTransaction();
         EventBus.getDefault().post(new OnFilmDataBaseUpdate());
     }
 
-    private Film getFilmById(long id) {
-        return mRealm.where(Film.class).equalTo("id", id).findFirst();
+    private Location getFilmById(long id) {
+        return mRealm.where(Location.class).equalTo("id", id).findFirst();
     }
 
     public long createFilmAndSave(String name, String director, int year, double rating) {
-        Film film = new Film(0L, name, year, director, rating);
-        return insertItem(film);
+        Location location = new Location(0L, name, year, director, rating);
+        return insertItem(location);
     }
 
     @Override
-    public List<Film> search(String query) {
+    public List<Location> search(String query) {
         if (query != null && !query.isEmpty()) {
             query = "*" + query + "*";
-            return mRealm.copyFromRealm(mRealm.where(Film.class)
+            return mRealm.copyFromRealm(mRealm.where(Location.class)
                     .like("name", query, Case.INSENSITIVE)
                     .findAll());
         } else {
@@ -103,14 +108,14 @@ public class RealmFilmRepository implements IFilmRepository {
     }
 
     @Override
-    public List<Film> searchInBounds(int startYear, int endYear) {
+    public List<Location> searchInBounds(int startYear, int endYear) {
         if (endYear == 0) {
-            return mRealm.copyFromRealm(mRealm.where(Film.class)
+            return mRealm.copyFromRealm(mRealm.where(Location.class)
                     .equalTo("year", startYear)
                     .sort("year", Sort.ASCENDING)
                     .findAll());
         } else {
-            return mRealm.copyFromRealm(mRealm.where(Film.class)
+            return mRealm.copyFromRealm(mRealm.where(Location.class)
                     .between("year", startYear, endYear)
                     .sort("year", Sort.ASCENDING)
                     .findAll());
@@ -118,26 +123,26 @@ public class RealmFilmRepository implements IFilmRepository {
     }
 
     @Override
-    public List<Film> searchByDirector(String name) {
+    public List<Location> searchByDirector(String name) {
         if (name == null || name.length() < MIN_LENGTH_FOR_DIRECTOR_SEARCH) {
             return new ArrayList<>();
         }
-        return mRealm.copyFromRealm(mRealm.where(Film.class)
+        return mRealm.copyFromRealm(mRealm.where(Location.class)
                 .beginsWith("director", name, Case.INSENSITIVE)
                 .findAll());
     }
 
     @Override
-    public List<Film> getTopFilms(int count) {
+    public List<Location> getTopFilms(int count) {
 
-        List<Film> retList = new ArrayList<>();
+        List<Location> retList = new ArrayList<>();
 
-        List<Film> results = mRealm.copyFromRealm(mRealm.where(Film.class).sort("rating", Sort.DESCENDING).findAll());
-        for (Film film : results) {
+        List<Location> results = mRealm.copyFromRealm(mRealm.where(Location.class).sort("rating", Sort.DESCENDING).findAll());
+        for (Location location : results) {
             if (retList.size() >= count) {
                 break;
             }
-            retList.add(film);
+            retList.add(location);
         }
         return retList;
     }
@@ -145,8 +150,8 @@ public class RealmFilmRepository implements IFilmRepository {
 
     @Override
     public void createFilmAndUpdate(long id, String name, String director, int year, double rating) {
-        Film film = new Film(id, name, year, director, rating);
-        updateItem(film);
+        Location location = new Location(id, name, year, director, rating);
+        updateItem(location);
     }
 
     class OnFilmDataBaseUpdate implements IOnFilmDataBaseUpdate {

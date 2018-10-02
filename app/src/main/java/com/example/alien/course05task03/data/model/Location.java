@@ -1,33 +1,29 @@
 package com.example.alien.course05task03.data.model;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
-import org.greenrobot.greendao.annotation.Generated;
 
-@Entity
-public class Film extends RealmObject {
+public class Location extends RealmObject {
     @PrimaryKey
-    @Id(autoincrement = true)
     private Long id;
     private String name;
     private int year;
     private String director;
     private double rating;
 
-    public Film() {
+    public Location() {
     }
 
-    @Generated(hash = 1265539438)
-    public Film(Long id, String name, int year, String director, double rating) {
+    public Location(Long id, String name, int year, String director,
+                    double rating) {
         this.id = id;
         this.name = name;
         this.year = year;
         this.director = director;
         this.rating = rating;
     }
+
 
     public Long getId() {
         return id;

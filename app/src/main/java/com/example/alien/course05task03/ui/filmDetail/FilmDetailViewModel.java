@@ -4,7 +4,7 @@ import android.arch.lifecycle.MutableLiveData;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.IFilmRepository;
-import com.example.alien.course05task03.data.model.Film;
+import com.example.alien.course05task03.data.model.Location;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.google.gson.Gson;
 
@@ -32,11 +32,11 @@ public class FilmDetailViewModel extends BaseViewModel {
     }
 
     private void loadFilm() {
-        Film film = mRepository.getItem(mFilmId);
-        mName.postValue(film.getName());
-        mDirector.postValue(film.getDirector());
-        mYear.postValue(String.valueOf(film.getYear()));
-        mRating.postValue(String.valueOf(film.getRating()));
+        Location location = mRepository.getItem(mFilmId);
+        mName.postValue(location.getName());
+        mDirector.postValue(location.getDirector());
+        mYear.postValue(String.valueOf(location.getYear()));
+        mRating.postValue(String.valueOf(location.getRating()));
     }
 
     public MutableLiveData<String> getName() {
