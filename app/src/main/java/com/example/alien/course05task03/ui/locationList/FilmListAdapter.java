@@ -1,4 +1,4 @@
-package com.example.alien.course05task03.ui.filmList;
+package com.example.alien.course05task03.ui.locationList;
 
 import android.support.annotation.NonNull;
 import android.support.v7.recyclerview.extensions.ListAdapter;

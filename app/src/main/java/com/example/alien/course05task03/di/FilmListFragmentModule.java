@@ -3,8 +3,8 @@ package com.example.alien.course05task03.di;
 
 import android.support.v4.app.Fragment;
 
-import com.example.alien.course05task03.ui.filmList.FilmListAdapter;
-import com.example.alien.course05task03.ui.filmList.IOnItemClickListener;
+import com.example.alien.course05task03.ui.locationList.FilmListAdapter;
+import com.example.alien.course05task03.ui.locationList.IOnItemClickListener;
 
 import toothpick.config.Module;
 

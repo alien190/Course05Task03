@@ -4,7 +4,7 @@ import com.example.alien.course05task03.data.model.Location;
 
 import java.util.List;
 
-public interface IFilmRepository {
+public interface ILocationRepository {
 
     long insertItem(Location location);
 

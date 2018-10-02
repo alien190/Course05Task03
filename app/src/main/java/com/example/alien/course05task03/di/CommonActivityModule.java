@@ -2,7 +2,7 @@ package com.example.alien.course05task03.di;
 
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.alien.course05task03.ui.filmList.ListAllFragment;
+import com.example.alien.course05task03.ui.locationList.ListAllFragment;
 import com.example.alien.course05task03.ui.main.MainFragment;
 
 import toothpick.config.Module;

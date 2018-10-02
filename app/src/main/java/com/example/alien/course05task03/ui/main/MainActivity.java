@@ -13,7 +13,7 @@ import com.example.alien.course05task03.di.SearchByDirectorActivityModule;
 import com.example.alien.course05task03.di.SearchByNameActivityModule;
 import com.example.alien.course05task03.di.SearchByTopActivityModule;
 import com.example.alien.course05task03.di.SearchByYearActivityModule;
-import com.example.alien.course05task03.ui.filmList.ListAllFragment;
+import com.example.alien.course05task03.ui.locationList.ListAllFragment;
 
 import javax.inject.Inject;
 import javax.inject.Named;

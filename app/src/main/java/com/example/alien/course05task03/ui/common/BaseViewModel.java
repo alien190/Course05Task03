@@ -3,7 +3,7 @@ package com.example.alien.course05task03.ui.common;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.example.alien.course05task03.data.IFilmRepository;
+import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.data.model.Location;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,11 +25,11 @@ public abstract class BaseViewModel extends ViewModel {
     private MutableLiveData<String> mVisibleItemPosition = new MutableLiveData<>();
     private MutableLiveData<String> mItemCount = new MutableLiveData<>();
 
-    protected IFilmRepository mRepository;
+    protected ILocationRepository mRepository;
 
     private Gson mGson;
 
-    public BaseViewModel(IFilmRepository repository, Gson gson) {
+    public BaseViewModel(ILocationRepository repository, Gson gson) {
         this.mRepository = repository;
         this.mGson = gson;
 
@@ -80,7 +80,7 @@ public abstract class BaseViewModel extends ViewModel {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFilmDataBaseUpdate(IFilmRepository.IOnFilmDataBaseUpdate event) {
+    public void onFilmDataBaseUpdate(ILocationRepository.IOnFilmDataBaseUpdate event) {
         updateFromRepository();
     }
 

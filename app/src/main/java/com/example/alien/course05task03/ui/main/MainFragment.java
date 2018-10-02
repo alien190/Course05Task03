@@ -17,7 +17,6 @@ import com.example.alien.course05task03.databinding.MainBinding;
 import com.example.alien.course05task03.databinding.SearchByNameBinding;
 import com.example.alien.course05task03.ui.common.BaseFragment;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
-import com.example.alien.course05task03.ui.filmDetail.FilmDetailDialogFragment;
 
 import javax.inject.Inject;
 
@@ -98,8 +97,8 @@ public class MainFragment extends BaseFragment {
                 return true;
             }
             case R.id.mi_add: {
-                FilmDetailDialogFragment filmDetailDialogFragment = FilmDetailDialogFragment.newInstance(-1);
-                filmDetailDialogFragment.show(getActivity().getSupportFragmentManager(), "filmDetailDialogFragment");
+//                LocationDetailFragment locationDetailFragment = LocationDetailFragment.newInstance(-1);
+//                locationDetailFragment.show(getActivity().getSupportFragmentManager(), "locationDetailFragment");
                 return true;
             }
 

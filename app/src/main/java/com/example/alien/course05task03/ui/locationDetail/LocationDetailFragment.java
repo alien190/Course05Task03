@@ -1,18 +1,18 @@
-package com.example.alien.course05task03.ui.filmDetail;
+package com.example.alien.course05task03.ui.locationDetail;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.alien.course05task03.R;
-import com.example.alien.course05task03.di.FilmDetailDialogFragmentModule;
+import com.example.alien.course05task03.di.LocationDetailFragmentModule;
 
 import javax.inject.Inject;
 
@@ -21,13 +21,13 @@ import butterknife.ButterKnife;
 import toothpick.Scope;
 import toothpick.Toothpick;
 
-public class FilmDetailDialogFragment extends DialogFragment {
+public class LocationDetailFragment extends Fragment {
 
     private Scope mScope;
-    private static final String KEY_FILM_ID = "FilmDetailDialogFragment.KeyFilmId";
+    private static final String KEY_FILM_ID = "LocationDetailFragment.KeyFilmId";
 
     @Inject
-    protected FilmDetailViewModel mViewModel;
+    protected LocationDetailViewModel mViewModel;
 
     @BindView(R.id.tvTitle)
     protected TextView tvTitle;
@@ -52,32 +52,21 @@ public class FilmDetailDialogFragment extends DialogFragment {
 
     };
 
-    public static FilmDetailDialogFragment newInstance(long id) {
+    public static LocationDetailFragment newInstance(long id) {
 
         Bundle args = new Bundle();
         args.putLong(KEY_FILM_ID, id);
-        FilmDetailDialogFragment fragment = new FilmDetailDialogFragment();
+        LocationDetailFragment fragment = new LocationDetailFragment();
         fragment.setArguments(args);
 
         return fragment;
     }
 
-    @NonNull
+    @Nullable
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        toothpickInject();
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.fr_detail_dialog_fragment, null);
-        initUI(view);
-
-        builder.setView(view)
-                .setPositiveButton(R.string.btn_save_label, mOnClickListener)
-                .setNegativeButton(R.string.btn_cancel_label, null);
-
-        return builder.create();
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     private void toothpickInject() {
@@ -87,7 +76,7 @@ public class FilmDetailDialogFragment extends DialogFragment {
         }
 
         mScope = Toothpick.openScopes("Application", this.getClass().getSimpleName());
-        mScope.installModules(new FilmDetailDialogFragmentModule(this, id));
+        mScope.installModules(new LocationDetailFragmentModule(this, id));
         Toothpick.inject(this, mScope);
     }
 

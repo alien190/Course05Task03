@@ -1,4 +1,4 @@
-package com.example.alien.course05task03.ui.filmList;
+package com.example.alien.course05task03.ui.locationList;
 
 import android.content.res.AssetManager;
 import android.os.Bundle;
@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.ui.common.BaseFragment;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
-import com.example.alien.course05task03.ui.filmDetail.FilmDetailDialogFragment;
+import com.example.alien.course05task03.ui.locationDetail.LocationDetailFragment;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -106,8 +106,8 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
 
     @Override
     public void OnItemClick(long id) {
-        FilmDetailDialogFragment filmDetailDialogFragment = FilmDetailDialogFragment.newInstance(id);
-        filmDetailDialogFragment.show(getActivity().getSupportFragmentManager(), "filmDetailDialogFragment");
+//        LocationDetailFragment locationDetailFragment = LocationDetailFragment.newInstance(id);
+//        locationDetailFragment.show(getActivity().getSupportFragmentManager(), "locationDetailFragment");
     }
 
 

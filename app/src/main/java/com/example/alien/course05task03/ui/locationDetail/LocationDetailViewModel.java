@@ -1,16 +1,16 @@
-package com.example.alien.course05task03.ui.filmDetail;
+package com.example.alien.course05task03.ui.locationDetail;
 
 import android.arch.lifecycle.MutableLiveData;
 
 import com.example.alien.course05task03.R;
-import com.example.alien.course05task03.data.IFilmRepository;
+import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.data.model.Location;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.google.gson.Gson;
 
 import timber.log.Timber;
 
-public class FilmDetailViewModel extends BaseViewModel {
+public class LocationDetailViewModel extends BaseViewModel {
     private MutableLiveData<String> mName = new MutableLiveData<>();
     private MutableLiveData<String> mYear = new MutableLiveData<>();
     private MutableLiveData<String> mDirector = new MutableLiveData<>();
@@ -19,7 +19,7 @@ public class FilmDetailViewModel extends BaseViewModel {
     private Long mFilmId;
     private int mTitleId;
 
-    public FilmDetailViewModel(IFilmRepository repository, Gson gson, Long filmId) {
+    public LocationDetailViewModel(ILocationRepository repository, Gson gson, Long filmId) {
         super(repository, gson);
         mIsSaved.postValue(false);
         mFilmId = filmId;

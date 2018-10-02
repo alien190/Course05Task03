@@ -3,7 +3,7 @@ package com.example.alien.course05task03.di;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.alien.course05task03.ui.filmList.ListAllViewModel;
+import com.example.alien.course05task03.ui.locationList.ListAllViewModel;
 import com.example.alien.course05task03.ui.common.ViewModelCustomFactory;
 
 import javax.inject.Inject;
