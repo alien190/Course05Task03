@@ -1,12 +1,6 @@
 package com.example.alien.course05task03.ui.locationDetail;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +11,15 @@ import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.di.LocationDetailFragmentModule;
 import com.example.alien.course05task03.ui.zoom.ImageZoomActivity;
 import com.example.alien.course05task03.utils.ImageUtils;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import javax.inject.Inject;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import toothpick.Scope;

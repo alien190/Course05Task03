@@ -1,7 +1,5 @@
 package com.example.alien.course05task03.ui.common;
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 
 import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.data.model.Location;
@@ -15,13 +13,16 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmResults;
 
 public abstract class BaseViewModel extends ViewModel {
-    protected MutableLiveData<List<Location>> mFilmList = new MutableLiveData<>();
+    protected MutableLiveData<List<Location>> mLocationList = new MutableLiveData<>();
     protected OrderedRealmCollection<Location> data;
     private MutableLiveData<Boolean> mIsEmpty = new MutableLiveData<>();
+    private MutableLiveData<Boolean> mIsDataBaseEmpty = new MutableLiveData<>();
     private MutableLiveData<String> mVisibleItemPosition = new MutableLiveData<>();
     private MutableLiveData<String> mItemCount = new MutableLiveData<>();
 
@@ -37,7 +38,7 @@ public abstract class BaseViewModel extends ViewModel {
 
         mVisibleItemPosition.postValue("1");
 
-        mFilmList.observeForever(list ->
+        mLocationList.observeForever(list ->
         {
             mIsEmpty.postValue(list != null && list.isEmpty());
             mItemCount.postValue(list == null ? "0" : String.valueOf(list.size()));
@@ -48,10 +49,11 @@ public abstract class BaseViewModel extends ViewModel {
             }
         });
 
+        mIsDataBaseEmpty.postValue(mRepository.getItemsCount() == 0);
     }
 
-    public MutableLiveData<List<Location>> getFilmList() {
-        return mFilmList;
+    public MutableLiveData<List<Location>> getLocationList() {
+        return mLocationList;
     }
 
     public MutableLiveData<Boolean> getIsEmpty() {
@@ -80,7 +82,7 @@ public abstract class BaseViewModel extends ViewModel {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFilmDataBaseUpdate(ILocationRepository.IOnLocationDataBaseUpdate event) {
+    public void onLocationDataBaseUpdate(ILocationRepository.IOnLocationDataBaseUpdate event) {
         updateFromRepository();
     }
 
@@ -93,5 +95,9 @@ public abstract class BaseViewModel extends ViewModel {
 
     public MutableLiveData<String> getItemCount() {
         return mItemCount;
+    }
+
+    public MutableLiveData<Boolean> getIsDataBaseEmpty() {
+        return mIsDataBaseEmpty;
     }
 }

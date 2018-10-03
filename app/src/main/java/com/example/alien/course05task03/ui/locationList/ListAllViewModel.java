@@ -17,6 +17,6 @@ public class ListAllViewModel extends BaseViewModel {
     @Override
     protected void updateFromRepository() {
         List<Location> locations = mRepository.getAll();
-        mFilmList.postValue(locations);
+        mLocationList.postValue(locations);
     }
 }

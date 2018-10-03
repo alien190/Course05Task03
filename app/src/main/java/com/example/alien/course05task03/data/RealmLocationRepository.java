@@ -13,8 +13,6 @@ import io.realm.RealmConfiguration;
 import io.realm.Sort;
 
 public class RealmLocationRepository implements ILocationRepository {
-    private static final int MIN_LENGTH_FOR_NAME_SEARCH = 3;
-    private static final int MIN_LENGTH_FOR_DIRECTOR_SEARCH = 4;
     private AtomicLong currentId = new AtomicLong();
     private Realm mRealm;
 
@@ -96,6 +94,10 @@ public class RealmLocationRepository implements ILocationRepository {
         }
     }
 
+    @Override
+    public long getItemsCount() {
+        return mRealm.where(Location.class).count();
+    }
 
     class OnLocationDataBaseUpdate implements IOnLocationDataBaseUpdate {
     }

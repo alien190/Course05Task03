@@ -1,9 +1,6 @@
 package com.example.alien.course05task03.ui.main;
 
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,11 +11,15 @@ import android.view.ViewGroup;
 import com.example.alien.course05task03.BR;
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.databinding.MainBinding;
-import com.example.alien.course05task03.databinding.SearchByNameBinding;
+//import com.example.alien.course05task03.databinding.SearchByNameBinding;
 import com.example.alien.course05task03.ui.common.BaseFragment;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 
 import javax.inject.Inject;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.databinding.ViewDataBinding;
 
 public class MainFragment extends BaseFragment {
 
@@ -48,30 +49,30 @@ public class MainFragment extends BaseFragment {
 
         mSearchType = getArguments().getInt(KEY_TYPE, 0);
 
-        switch (mSearchType) {
-            case MainActivity.TYPE_SEARCH_BY_DIRECTOR: {
-                //mViewDataBinding = SearchByDirectorBinding.inflate(inflater, container, false);
-                break;
-            }
-            case MainActivity.TYPE_SEARCH_BY_NAME: {
-                mViewDataBinding = SearchByNameBinding.inflate(inflater, container, false);
-                break;
-            }
-            case MainActivity.TYPE_SEARCH_BY_YEAR: {
-                //mViewDataBinding = SearchByYearBinding.inflate(inflater, container, false);
-                break;
-            }
-            case MainActivity.TYPE_SEARCH_BY_TOP: {
-               // mViewDataBinding = SearchByTopBinding.inflate(inflater, container, false);
-                break;
-            }
-            default: {
-                mViewDataBinding = MainBinding.inflate(inflater, container, false);
-                setHasOptionsMenu(true);
-                mSearchType = 0;
-                break;
-            }
-        }
+//        switch (mSearchType) {
+//            case MainActivity.TYPE_SEARCH_BY_DIRECTOR: {
+//                //mViewDataBinding = SearchByDirectorBinding.inflate(inflater, container, false);
+//                break;
+//            }
+//            case MainActivity.TYPE_SEARCH_BY_NAME: {
+//                mViewDataBinding = SearchByNameBinding.inflate(inflater, container, false);
+//                break;
+//            }
+//            case MainActivity.TYPE_SEARCH_BY_YEAR: {
+//                //mViewDataBinding = SearchByYearBinding.inflate(inflater, container, false);
+//                break;
+//            }
+//            case MainActivity.TYPE_SEARCH_BY_TOP: {
+//               // mViewDataBinding = SearchByTopBinding.inflate(inflater, container, false);
+//                break;
+//            }
+//            default: {
+//                mViewDataBinding = MainBinding.inflate(inflater, container, false);
+//                setHasOptionsMenu(true);
+//                mSearchType = 0;
+//                break;
+//            }
+//        }
 
         return mViewDataBinding.getRoot();
     }
@@ -80,8 +81,9 @@ public class MainFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewDataBinding.setVariable(BR.vm, mViewModel);
-        mViewDataBinding.setLifecycleOwner(this);
+//        mViewDataBinding.setVariable(BR.vm, mViewModel);
+//        mViewDataBinding.setVariable(BR.queryListener, mViewModel);
+//        mViewDataBinding.setLifecycleOwner(this);
     }
 
     @Override

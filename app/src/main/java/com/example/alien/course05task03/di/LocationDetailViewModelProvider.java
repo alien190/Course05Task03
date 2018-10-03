@@ -1,7 +1,5 @@
 package com.example.alien.course05task03.di;
 
-import android.arch.lifecycle.ViewModelProviders;
-import android.support.v4.app.Fragment;
 
 import com.example.alien.course05task03.ui.locationDetail.LocationDetailViewModel;
 import com.example.alien.course05task03.ui.locationDetail.LocationDetailViewModelCustomFactory;
@@ -9,6 +7,9 @@ import com.example.alien.course05task03.ui.locationDetail.LocationDetailViewMode
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Provider;
+
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 class LocationDetailViewModelProvider implements Provider<LocationDetailViewModel> {
     @Inject

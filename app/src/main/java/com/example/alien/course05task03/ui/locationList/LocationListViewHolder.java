@@ -1,7 +1,5 @@
 package com.example.alien.course05task03.ui.locationList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,11 +8,13 @@ import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.model.Location;
 import com.example.alien.course05task03.utils.ImageUtils;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class FilmListViewHolder extends RecyclerView.ViewHolder {
+public class LocationListViewHolder extends RecyclerView.ViewHolder {
     private View view;
     private long mId;
 
@@ -34,7 +34,7 @@ public class FilmListViewHolder extends RecyclerView.ViewHolder {
     protected TextView mTvPriceUnit;
 
 
-    public FilmListViewHolder(@NonNull View itemView) {
+    public LocationListViewHolder(@NonNull View itemView) {
         super(itemView);
         view = itemView;
         ButterKnife.bind(this, view);

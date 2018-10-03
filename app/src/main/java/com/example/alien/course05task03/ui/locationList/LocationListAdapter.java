@@ -1,8 +1,5 @@
 package com.example.alien.course05task03.ui.locationList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.recyclerview.extensions.ListAdapter;
-import android.support.v7.util.DiffUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +7,12 @@ import android.view.ViewGroup;
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.model.Location;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 
-public class LocationListAdapter extends ListAdapter<Location, FilmListViewHolder> {
+
+public class LocationListAdapter extends ListAdapter<Location, LocationListViewHolder> {
 
     private IOnItemClickListener mOnItemClickListener;
 
@@ -35,15 +36,15 @@ public class LocationListAdapter extends ListAdapter<Location, FilmListViewHolde
 
     @NonNull
     @Override
-    public FilmListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public LocationListViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.li_tour, viewGroup, false);
-        return new FilmListViewHolder(view);
+        return new LocationListViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FilmListViewHolder filmListViewHolder, int i) {
-        filmListViewHolder.bind(getItem(i));
-        filmListViewHolder.setOnItemClickListener(mOnItemClickListener);
+    public void onBindViewHolder(@NonNull LocationListViewHolder locationListViewHolder, int i) {
+        locationListViewHolder.bind(getItem(i));
+        locationListViewHolder.setOnItemClickListener(mOnItemClickListener);
     }
 
 }

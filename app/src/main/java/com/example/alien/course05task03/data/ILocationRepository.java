@@ -18,6 +18,7 @@ public interface ILocationRepository {
 
     List<Location> search(String query);
 
+    long getItemsCount();
 
     interface IOnLocationDataBaseUpdate {
     }

@@ -3,18 +3,19 @@ package com.example.alien.course05task03.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.di.MainActivityModule;
 import com.example.alien.course05task03.di.SearchByNameActivityModule;
 import com.example.alien.course05task03.ui.locationList.ListAllFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import toothpick.Scope;
 import toothpick.Toothpick;
 import toothpick.config.Module;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     MainFragment mMainFragment;
 
     @Inject
+    SettingsFragment mSettingsFragment;
+
+    @Inject
     ListAllFragment mListAllFragment;
 
     @Inject
@@ -39,25 +43,54 @@ public class MainActivity extends AppCompatActivity {
 
     private String mScopeName;
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = menuItem -> {
+        switch (menuItem.getItemId()) {
+            case R.id.mi_search: {
+                changeToSearchFragment();
+                return true;
+            }
+            case R.id.mi_settings: {
+                changeToSettingsFragment();
+                return true;
+            }
+            default: {
+                return false;
+            }
+        }
+    };
+
+    private BottomNavigationView mBottomNavigationView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         toothpickInject();
-
         setContentView(R.layout.ac_double_fragment);
         if (savedInstanceState == null) {
-            changeFragment();
+            changeToSearchFragment();
         }
 
         setTitle(mTitleId);
+        mBottomNavigationView = findViewById(R.id.navigation);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mBottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    @Override
+    protected void onPause() {
+        mBottomNavigationView.setOnNavigationItemSelectedListener(null);
+        super.onPause();
     }
 
     @Override
     public void onBackPressed() {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        if (fragmentManager.getBackStackEntryCount() == 1) {
+        if (fragmentManager.getBackStackEntryCount() <= 1) {
             finish();
         } else {
             fragmentManager.popBackStack();
@@ -72,13 +105,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    protected void changeFragment() {
+    protected void changeToSearchFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, mMainFragment)
-                .addToBackStack(mMainFragment.getClass().getSimpleName())
                 .replace(R.id.fragmentListContainer, mListAllFragment)
-                .addToBackStack(mListAllFragment.getClass().getSimpleName())
+                .commit();
+    }
+
+    protected void changeToSettingsFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .remove(mListAllFragment)
+                .remove(mMainFragment)
+                .replace(R.id.fragmentListContainer, mSettingsFragment)
                 .commit();
     }
 
