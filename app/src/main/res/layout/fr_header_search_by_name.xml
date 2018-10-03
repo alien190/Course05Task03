@@ -21,12 +21,11 @@
             android:layout_height="wrap_content"
             android:text="@string/locations_for_you" />
 
-        <android.support.v7.widget.SearchView
+        <androidx.appcompat.widget.SearchView
             style="@style/baseTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:searchListener="@{vm}"
-            />
+            android:searchListener="@{vm}" />
 
 
         <View style="@style/separateLine" />
@@ -43,11 +42,10 @@
                 style="@style/baseTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{vm.visibleItemPosition}"
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"
-                tools:text="3"
-                android:text="@{vm.visibleItemPosition}"
-            />
+                tools:text="3" />
 
 
             <TextView

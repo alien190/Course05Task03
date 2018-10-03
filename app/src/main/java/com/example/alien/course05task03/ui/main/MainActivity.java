@@ -3,19 +3,19 @@ package com.example.alien.course05task03.ui.main;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.di.MainActivityModule;
 import com.example.alien.course05task03.di.SearchByNameActivityModule;
 import com.example.alien.course05task03.ui.locationList.ListAllFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import toothpick.Scope;
 import toothpick.Toothpick;
 import toothpick.config.Module;

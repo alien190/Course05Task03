@@ -1,10 +1,11 @@
 package com.example.alien.course05task03.utils;
 
 
-import android.databinding.BindingAdapter;
-import android.support.v7.widget.SearchView;
 
 import com.example.alien.course05task03.ui.search.SearchByNameViewModel;
+
+import androidx.appcompat.widget.SearchView;
+import androidx.databinding.BindingAdapter;
 
 
 public class BindingAdapters {

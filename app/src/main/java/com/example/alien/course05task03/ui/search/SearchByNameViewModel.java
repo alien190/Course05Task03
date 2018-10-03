@@ -1,12 +1,13 @@
 package com.example.alien.course05task03.ui.search;
 
 
-import android.arch.lifecycle.MutableLiveData;
-import android.support.v7.widget.SearchView;
 
 import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.google.gson.Gson;
+
+import androidx.appcompat.widget.SearchView;
+import androidx.lifecycle.MutableLiveData;
 
 
 public class SearchByNameViewModel extends BaseViewModel implements SearchView.OnQueryTextListener {

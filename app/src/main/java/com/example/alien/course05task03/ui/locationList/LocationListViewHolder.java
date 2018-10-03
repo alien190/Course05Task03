@@ -1,7 +1,5 @@
 package com.example.alien.course05task03.ui.locationList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +8,8 @@ import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.model.Location;
 import com.example.alien.course05task03.utils.ImageUtils;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

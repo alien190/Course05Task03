@@ -1,14 +1,15 @@
 package com.example.alien.course05task03.ui.locationList;
 
-import android.support.annotation.NonNull;
-import android.support.v7.recyclerview.extensions.ListAdapter;
-import android.support.v7.util.DiffUtil;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.model.Location;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
 
 
 public class LocationListAdapter extends ListAdapter<Location, LocationListViewHolder> {

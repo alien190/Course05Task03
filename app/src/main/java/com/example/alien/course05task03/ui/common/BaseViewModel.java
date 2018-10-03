@@ -1,8 +1,6 @@
 package com.example.alien.course05task03.ui.common;
 
 
-import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.ViewModel;
 
 import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.data.model.Location;
@@ -16,6 +14,8 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 import io.realm.OrderedRealmCollection;
 import io.realm.RealmResults;
 

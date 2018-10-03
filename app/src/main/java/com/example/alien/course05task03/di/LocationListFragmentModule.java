@@ -2,12 +2,12 @@ package com.example.alien.course05task03.di;
 
 
 
-import android.support.v4.app.Fragment;
 
 import com.example.alien.course05task03.ui.locationList.LocationListAdapter;
 import com.example.alien.course05task03.ui.locationList.IOnItemClickListener;
 
 
+import androidx.fragment.app.Fragment;
 import toothpick.config.Module;
 
 public class LocationListFragmentModule extends Module {
