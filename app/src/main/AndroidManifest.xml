@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.locationDetail.LocationDetailActivity"/>
+        <activity android:name=".ui.zoom.ImageZoomActivity"/>
     </application>
 
 </manifest>

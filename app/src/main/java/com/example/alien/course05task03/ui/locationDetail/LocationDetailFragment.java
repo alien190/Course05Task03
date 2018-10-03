@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.di.LocationDetailFragmentModule;
+import com.example.alien.course05task03.ui.zoom.ImageZoomActivity;
 import com.example.alien.course05task03.utils.ImageUtils;
 
 import javax.inject.Inject;
@@ -96,6 +97,7 @@ public class LocationDetailFragment extends Fragment {
         mViewModel.getHotelName().observe(this, mTvHotelName::setText);
         mViewModel.getHotelAddress().observe(this, mTvHotelAddress::setText);
         mViewModel.getHotelPrice().observe(this, mTvPrice::setText);
+        mIvHotelPicture.setOnClickListener(view1 -> ImageZoomActivity.start(getContext()));
     }
 
 
