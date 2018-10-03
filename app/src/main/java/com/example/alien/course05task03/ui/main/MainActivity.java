@@ -9,10 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.di.MainActivityModule;
-import com.example.alien.course05task03.di.SearchByDirectorActivityModule;
 import com.example.alien.course05task03.di.SearchByNameActivityModule;
-import com.example.alien.course05task03.di.SearchByTopActivityModule;
-import com.example.alien.course05task03.di.SearchByYearActivityModule;
 import com.example.alien.course05task03.ui.locationList.ListAllFragment;
 
 import javax.inject.Inject;
@@ -88,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-         Toothpick.closeScope(mScopeName);
+        Toothpick.closeScope(mScopeName);
     }
 
     private void toothpickInject() {
@@ -98,24 +95,10 @@ public class MainActivity extends AppCompatActivity {
         int type = getIntent().getIntExtra(TYPE_KEY, 1);
 
         switch (type) {
-            case TYPE_SEARCH_BY_DIRECTOR: {
-                mScopeName = "SEARCH_BY_DIRECTOR_SCOPE";
-                module = new SearchByDirectorActivityModule(this, mScopeName, type);
-                break;
-            }
+
             case TYPE_SEARCH_BY_NAME: {
                 mScopeName = "SEARCH_BY_NAME_SCOPE";
                 module = new SearchByNameActivityModule(this, mScopeName, type);
-                break;
-            }
-            case TYPE_SEARCH_BY_YEAR: {
-                mScopeName = "SEARCH_BY_YEAR_SCOPE";
-                module = new SearchByYearActivityModule(this, mScopeName, type);
-                break;
-            }
-            case TYPE_SEARCH_BY_TOP: {
-                mScopeName = "SEARCH_BY_TOP_SCOPE";
-                module = new SearchByTopActivityModule(this, mScopeName, type);
                 break;
             }
             default: {

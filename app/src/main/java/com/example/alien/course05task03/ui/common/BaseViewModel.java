@@ -80,7 +80,7 @@ public abstract class BaseViewModel extends ViewModel {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onFilmDataBaseUpdate(ILocationRepository.IOnFilmDataBaseUpdate event) {
+    public void onFilmDataBaseUpdate(ILocationRepository.IOnLocationDataBaseUpdate event) {
         updateFromRepository();
     }
 

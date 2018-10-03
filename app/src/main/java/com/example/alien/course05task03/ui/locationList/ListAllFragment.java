@@ -15,7 +15,6 @@ import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.ui.common.BaseFragment;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.example.alien.course05task03.ui.locationDetail.LocationDetailActivity;
-import com.example.alien.course05task03.ui.locationDetail.LocationDetailFragment;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -35,7 +34,7 @@ public class ListAllFragment extends BaseFragment implements IOnItemClickListene
     LinearLayout mErrorLayout;
 
     @Inject
-    protected FilmListAdapter mAdapter;
+    protected LocationListAdapter mAdapter;
 
     @Inject
     protected BaseViewModel mViewModel;

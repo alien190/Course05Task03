@@ -11,7 +11,7 @@ import com.example.alien.course05task03.R;
 import com.example.alien.course05task03.data.model.Location;
 
 
-public class FilmListAdapter extends ListAdapter<Location, FilmListViewHolder> {
+public class LocationListAdapter extends ListAdapter<Location, FilmListViewHolder> {
 
     private IOnItemClickListener mOnItemClickListener;
 
@@ -28,7 +28,7 @@ public class FilmListAdapter extends ListAdapter<Location, FilmListViewHolder> {
     };
 
 
-    public FilmListAdapter(IOnItemClickListener onItemClickListener) {
+    public LocationListAdapter(IOnItemClickListener onItemClickListener) {
         super(DIFF_CALLBACK);
         mOnItemClickListener = onItemClickListener;
     }

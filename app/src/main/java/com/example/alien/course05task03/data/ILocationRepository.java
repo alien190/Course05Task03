@@ -16,20 +16,10 @@ public interface ILocationRepository {
 
     List<Location> getAll();
 
-    void updateItem(Location location);
-
     List<Location> search(String query);
 
-    List<Location> searchInBounds(int startYear, int endYear);
 
-    List<Location> searchByDirector(String name);
-
-    List<Location> getTopFilms(int count);
-
-    long createFilmAndSave(String name, String director, int year, double rating);
-
-    void createFilmAndUpdate(long id, String name, String director, int year, double rating);
-
-    interface IOnFilmDataBaseUpdate {}
+    interface IOnLocationDataBaseUpdate {
+    }
 
 }
