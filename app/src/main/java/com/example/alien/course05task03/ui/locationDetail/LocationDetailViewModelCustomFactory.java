@@ -1,12 +1,13 @@
 package com.example.alien.course05task03.ui.locationDetail;
 
 
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProvider;
+import android.support.annotation.NonNull;
+
 import com.example.alien.course05task03.data.ILocationRepository;
 import com.google.gson.Gson;
 
-import androidx.annotation.NonNull;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
 
 public class LocationDetailViewModelCustomFactory implements ViewModelProvider.Factory {
     private ILocationRepository mRepository;

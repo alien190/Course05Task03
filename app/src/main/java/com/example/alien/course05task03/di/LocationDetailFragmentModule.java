@@ -2,10 +2,11 @@ package com.example.alien.course05task03.di;
 
 
 
+import android.support.v4.app.Fragment;
+
 import com.example.alien.course05task03.ui.locationDetail.LocationDetailViewModel;
 import com.example.alien.course05task03.ui.locationDetail.LocationDetailViewModelCustomFactory;
 
-import androidx.fragment.app.Fragment;
 import toothpick.config.Module;
 
 public class LocationDetailFragmentModule extends Module {

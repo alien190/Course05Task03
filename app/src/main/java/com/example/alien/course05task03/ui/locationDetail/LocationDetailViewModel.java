@@ -1,12 +1,13 @@
 package com.example.alien.course05task03.ui.locationDetail;
 
 
+import android.arch.lifecycle.MutableLiveData;
+
 import com.example.alien.course05task03.data.ILocationRepository;
 import com.example.alien.course05task03.data.model.Location;
 import com.example.alien.course05task03.ui.common.BaseViewModel;
 import com.google.gson.Gson;
 
-import androidx.lifecycle.MutableLiveData;
 
 public class LocationDetailViewModel extends BaseViewModel {
     private Long mLocationId;

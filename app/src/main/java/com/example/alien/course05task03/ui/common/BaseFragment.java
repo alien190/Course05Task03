@@ -2,12 +2,12 @@ package com.example.alien.course05task03.ui.common;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 
 import com.example.alien.course05task03.di.LocationListFragmentModule;
 import com.example.alien.course05task03.ui.main.MainActivity;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import toothpick.Scope;
 import toothpick.Toothpick;
 
